@@ -1,0 +1,4 @@
+memo
+
+psql -l
+psql -U tabuchikozue langchainrb_rails_sample_development
