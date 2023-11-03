@@ -61,3 +61,9 @@ group :development do
 
 end
 
+
+gem "langchainrb_rails", "~> 0.1.3"
+gem "neighbor"
+gem "ruby-openai"
+
+gem "dotenv-rails", "~> 2.8"
