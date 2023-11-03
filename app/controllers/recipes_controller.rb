@@ -3,6 +3,12 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
+  def search
+    @result = Recipe.ask(search_params[:query])
+    logger.info @result
+    render :search
+  end
+
   def show
     @recipe = Recipe.find_by(id: params[:id])
   end
@@ -50,5 +56,9 @@ class RecipesController < ApplicationController
 
     def recipe_params
       params.require(:recipe).permit(:title, :description)
+    end
+
+    def search_params
+      params.permit(:query)
     end
 end
