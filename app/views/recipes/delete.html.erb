@@ -1,2 +1,11 @@
-<h1>Recipes#delete</h1>
-<p>Find me in app/views/recipes/delete.html.erb</p>
+<h1>Delete Recipe</h1>
+
+<p>下記を削除して良いですか？</p>
+
+<p><strong>タイトル:</strong> <%= @recipe.title %></p>
+<p><strong>詳細:</strong> <%= @recipe.description %></p>
+
+<%= form_for @recipe, method: :delete do |f| %>
+    <%= f.submit "Delete", class: "btn btn-danger" %>
+    <%= link_to "Cancel", @recipe, class: "btn btn-default" %>
+<% end %>

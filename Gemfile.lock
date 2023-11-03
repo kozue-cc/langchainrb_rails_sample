@@ -255,6 +255,7 @@ PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
+  actioncable (~> 7.1)
   bootsnap
   debug
   dotenv-rails (~> 2.8)

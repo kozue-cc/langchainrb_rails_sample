@@ -1,0 +1,12 @@
+<div class="recipe">
+  <%= link_to recipe.title, recipe_path(recipe) %>
+  <div class="recipe__actions">
+    <%= button_to "Delete",
+                  recepi_path(recipe),
+                  method: :delete,
+                  class: "btn btn--light" %>
+    <%= link_to "Edit",
+                edit_recepi_path(recipe),
+                class: "btn btn--light" %>
+  </div>
+</div>

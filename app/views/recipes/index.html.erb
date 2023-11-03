@@ -1,2 +1,29 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<h1>レシピリスト</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>タイトル</th>
+            <th>詳細</th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
+    <%= turbo_frame_tag 'recipe_list' do %>
+        <tbody>
+            <% @recipes.each do |recipe| %>
+                <tr>
+                    <td><%= recipe.title %></td>
+                    <td><%= recipe.description %></td>
+                    <td><%= link_to "詳細", recipe %></td>
+                    <td><%= link_to "編集", edit_recipe_path(recipe) %></td>
+                    <td><%= link_to "Destroy", recipe, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></td>
+                    <td><%= link_to 'Delete', recipe, method: :delete, data: { turbo_method: :delete, turbo_frame: 'recipe_list' } %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    <% end %>
+</table>
+
+<br>
+
+<%= link_to "New recipe", new_recipe_path %>
