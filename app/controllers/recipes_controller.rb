@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+
   def index
     @recipes = Recipe.all
   end
@@ -10,11 +12,11 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find_by(id: params[:id])
+    # Nothing to do now
   end
 
   def edit
-    @recipe = Recipe.find_by(id: params[:id])
+    # Nothing to do now
   end
 
   def new
@@ -22,7 +24,6 @@ class RecipesController < ApplicationController
   end
 
   def create
-    logger.info params
     recipe = Recipe.new(recipe_params)
     if recipe.save
       redirect_to recipe
@@ -32,7 +33,6 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe = Recipe.find_by(id: params[:id])
     if @recipe.update(recipe_params)
       redirect_to @recipe
     else
@@ -41,11 +41,9 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
     @recipe.destroy!
     
     respond_to do |format|
-      format.turbo_stream
       format.html { redirect_to recipes_path }
     end
   end
