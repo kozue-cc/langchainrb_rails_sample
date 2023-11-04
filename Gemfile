@@ -69,3 +69,5 @@ gem "ruby-openai"
 gem "dotenv-rails", "~> 2.8"
 
 gem "actioncable", "~> 7.1"
+
+gem "activerecord-import", "~> 1.5"

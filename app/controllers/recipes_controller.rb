@@ -1,3 +1,5 @@
+require 'csv'
+
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
@@ -8,7 +10,7 @@ class RecipesController < ApplicationController
   def search
     @result = Recipe.ask(search_params[:query])
     logger.info @result
-    render :search
+    render :search_result
   end
 
   def show
@@ -46,6 +48,12 @@ class RecipesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to recipes_path }
     end
+  end
+
+  def bulk_create
+    csv_file = params[:csv_file]
+    Recipe.bulk_create(csv_file)
+    redirect_to recipes_path
   end
 
   private

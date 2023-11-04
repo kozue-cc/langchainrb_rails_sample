@@ -1,0 +1,10 @@
+<div class="container">
+    <h1>レシピの一括登録</h1>
+    CSVファイルを選択してください。
+    カラムは「タイトル」「詳細」の順になっている必要があります。
+
+    <%= form_with(url: bulk_create_path, local: true, multipart: true) do |form| %>
+        <%= form.file_field :csv_file,  accept: 'text/csv'%>
+        <%= form.submit "取り込み" %>
+    <% end %>
+</div>
