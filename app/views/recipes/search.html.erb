@@ -1,18 +1,19 @@
-<h1>検索結果</h1>
+<div class="container">
+  <h1>検索結果</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>回答</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+  <table>
+    <thead>
+      <tr>
+        <th>回答</th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <tr>
-    <td><%= simple_format(@result) %></td>
-    </tr>
-  </tbody>
-</table>
+    <tbody>
+      <tr>
+      <td><%= simple_format(@result) %></td>
+      </tr>
+    </tbody>
+  </table>
 
-<%= link_to "一覧に戻る", recipes_path({}) %>
+  <%= link_to "一覧に戻る", recipes_path({}) %>
+</div>

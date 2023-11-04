@@ -1,31 +1,32 @@
 <!-- FILEPATH: /Users/tabuchikozue/Sources/langchainrb_rails_sample/app/views/recipes/new.html.erb -->
+<div class="container">
+    <h1>レシピの登録</h1>
 
-<h1>New Recipe</h1>
+    <%= form_with(model: @recipe, local: true, id: :recipe_form) do |form|%>
+        <% if @recipe.errors.any? %>
+            <div id="error_explanation">
+                <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
 
-<%= form_with(model: @recipe, local: true) do |form| %>
-    <% if @recipe.errors.any? %>
-        <div id="error_explanation">
-            <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+                <ul>
+                <% @recipe.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+                </ul>
+            </div>
+        <% end %>
 
-            <ul>
-            <% @recipe.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-            </ul>
+        <div class="field">
+            <%= form.label :タイトル, class: :label %>
+            <%= form.text_field :title, id: :recipe_title, class: :textbox, placeholder: "料理、またはレシピのタイトル" %>
+        </div>
+
+        <div class="field">
+            <%= form.label :詳細 , class: :label %>
+            <%= form.text_area :description, id: :recipe_description , class: :textarea ,placeholder: "分量や作り方を書いてください。"%>
+        </div>
+
+        <div class="actions">
+            <%= form.submit %>
         </div>
     <% end %>
-
-    <div class="field">
-        <%= form.label :タイトル %>
-        <%= form.text_field :title, id: :recipe_title %>
-    </div>
-
-    <div class="field">
-        <%= form.label :詳細 %>
-        <%= form.text_area :description, id: :recipe_description %>
-    </div>
-
-    <div class="actions">
-        <%= form.submit %>
-    </div>
-<% end %>
+</div>

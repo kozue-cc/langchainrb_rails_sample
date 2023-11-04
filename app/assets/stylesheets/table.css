@@ -15,18 +15,33 @@ table {
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
   }
 
   .title {
     font-size: 20px;
     font-weight: bold;
     width: 15%;
+    margin: 10px;
+  }
+
+  .destription {
+    font-size: 20px;
+    font-weight: bold;
+    width: 50%;
   }
 
   .operation {
     font-size: 15px;
     font-weight: bold;
     width: 5%;
+  }
+
+  .field {
+    font-size: 15px;
+    font-weight: bold;
+    width: 45%;
   }
   
   tr:hover {background-color: #f5f5f5;}
